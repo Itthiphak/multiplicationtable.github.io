@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คูณตัวเลข</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>คูณตัวเลข 1-12</h1>
+        <input type="number" id="numberInput" placeholder="ป้อนตัวเลข" min="1">
+        <button onclick="multiply()">คูณ</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function multiply() {
+            const input = document.getElementById('numberInput').value;
+            const number = parseFloat(input);
+
+            if (isNaN(number) || number <= 0) {
+                alert('กรุณากรอกตัวเลขที่ถูกต้อง');
+                return;
+            }
+
+            let resultHtml = `<h2>ผลลัพธ์การคูณของ ${number}:</h2>`;
+            for (let i = 1; i <= 12; i++) {
+                resultHtml += `<p>${number} x ${i} = ${number * i}</p>`;
+            }
+
+            document.getElementById('result').innerHTML = resultHtml;
+        }
+    </script>
+</body>
+</html>
